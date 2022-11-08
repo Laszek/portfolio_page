@@ -1,0 +1,91 @@
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.navigation--list {
+  color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 16px;
+
+    &::before {
+      display: block;
+      content: "";
+      position: relative;
+      transition: width 1s;
+      margin-right: 16px;
+    }
+
+    .list--item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      max-width: 40px;
+      overflow: hidden;
+      transition: all .7s;
+
+      .item--text {
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 20px;
+        margin-left: 20px;
+        margin-right: -20px;
+        transition: all .7s;
+
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+
+
+    & + li.current::before {
+      width: 60px;
+      height: 11px;
+      background-image: url("/images/icons/line_elipse-left.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: cover;
+    }
+    &.current + li::before {
+      width: 60px;
+      height: 11px;
+      background-image: url("/images/icons/line_elipse-right.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: cover;
+    }
+    & + li::before{
+      width: 11px;
+      height: 11px;
+      background-image: url("/images/icons/ellipse.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+  }
+
+  .current .list--item {
+    .item--text{
+      width: 100%;
+    }
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
