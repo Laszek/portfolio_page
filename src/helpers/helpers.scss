@@ -9,6 +9,8 @@ $theme1: #1C840B;
 
 $fc1: #FFF;
 
+$shadow1: #737373;
+
 /* media queries */
 
 $bp-small-phone: 340px;
@@ -33,5 +35,16 @@ $bp-desktop: 1259px;
     @media only screen and (max-width: $bp-small-phone) {
       @content;
     }
+  }
+}
+
+// animations
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
   }
 }

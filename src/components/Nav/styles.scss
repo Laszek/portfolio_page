@@ -7,6 +7,7 @@ button {
 }
 
 .header {
+  position: absolute;
   width: 100%;
 }
 
@@ -21,13 +22,14 @@ button {
   transition: padding .5s;
   animation: appear;
   animation-duration: 1s;
-  background: transparentize($bg1, 0.7);
+  background: transparentize($bg1, 0.3);
   position: fixed;
 
   .navigation {
     transition: transform .5s, padding .5s;
     transform: scale(90%);
     padding: 10px;
+
     &:hover {
       transform: scale(100%);
       padding: 15px
@@ -36,6 +38,8 @@ button {
 }
 
 .navigation--list {
+  animation: appear;
+  animation-duration: 1s;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -83,7 +87,6 @@ button {
     }
 
 
-
     & + li.current::before {
       width: 60px;
       height: 11px;
@@ -94,6 +97,7 @@ button {
 
       transition: width .7s;
     }
+
     &.current + li::before {
       width: 60px;
       height: 11px;
@@ -101,9 +105,11 @@ button {
       background-repeat: no-repeat;
       background-position: right center;
       background-size: cover;
+
       transition: width .7s;
     }
-    & + li::before{
+
+    & + li::before {
       width: 11px;
       height: 11px;
       background-image: url("/images/icons/ellipse.png");
@@ -116,20 +122,41 @@ button {
 
   .current .list--item {
     transition: all .7s;
-    .item--text{
+
+    .item--text {
       width: 100%;
       transition: all .7s;
     }
+
     width: 100%;
     max-width: 500px;
   }
 }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
+@include devices(mobile) {
+  .navigation--list {
+    li {
+      margin: 5px;
+
+      &::before {
+        margin-right: 5px;
+      }
+
+
+      .list--item {
+        max-width: none;
+        justify-content: center;
+
+        .item--text {
+          display: none;
+          margin: 0;
+        }
+      }
+    }
+    .current .list--item {
+      width: auto;
+    }
   }
 }
+
+

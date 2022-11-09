@@ -1,0 +1,81 @@
+@import "../../helpers/helpers";
+
+.home--container {
+  min-height: 100vh;
+  min-width: 100%;
+
+  background-image:
+          radial-gradient(50% 164.84% at 53.11% 50%,
+          rgba(27, 27, 27, 0.224) 16.15%,
+          rgba(16, 16, 16, 0.35) 98.44%),
+          url("/images/home_background.png");
+  background-position: bottom;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after {
+    display: block;
+    content: "";
+    position: relative;
+  }
+
+  .home--content {
+    text-align: center;
+    animation: appear ease-in;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+
+    .name {
+      font-family: Roboto Mono;
+      font-size: 2em
+    }
+
+    .heading {
+      font-family: Barlow, sans-serif;
+      font-size: 4.5em;
+    }
+
+    .buttons {
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 2em 0;
+
+      .btn {
+        width: 40%;
+      }
+
+      .btn + .btn {
+        margin-top: 2em
+      }
+    }
+  }
+}
+
+.accent {
+  color: $theme1;
+  text-shadow: 0px 4px 4px #282828;
+}
+
+@include devices(mobile) {
+  .home--container {
+    width: 100%;
+    background-position: 40% bottom;
+    align-items: flex-start;
+    .home--content {
+      margin-top: 40%;
+      padding: 10px;
+      .buttons {
+        align-items: center;
+        margin: 1em 0;
+        .btn + .btn {
+          margin-top: 1em
+        }
+      }
+    }
+  }
+}
