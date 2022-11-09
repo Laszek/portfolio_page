@@ -25,23 +25,35 @@ const NAV_ITEMS = [
     },
 ];
 
-const Nav = ({currentSection = 0}) => {
+const Nav = () => {
     const [ selected, setSelected ] = useState("home");
+    const [ bgActive, setBgActive] = useState(false)
+
+    useEffect(()=> {
+        window.addEventListener('scroll', listenScrollEvent)
+    }, [])
 
     const handleClick = (name) => {
         setSelected("")
         setSelected(name)
     };
 
+    const listenScrollEvent = e => {
+        if (window.scrollY > 400)
+            setBgActive(true)
+        else
+            setBgActive(false)
+    }
+
     return (
-        <header className="header">
+        <header className={`header ${bgActive ? "scrolled" : "unscrolled"}`}>
             <nav className="navigation">
                 <ul className="navigation--list">
                     {NAV_ITEMS.map((item, index) =>
                         (
                             <li className={selected == item.ref ? "current" : undefined} key={index}>
                                 <button className="list--item" onClick={() => handleClick(item.ref)}>
-                                    <Icon name={item.iconName} size="24"/>
+                                    <Icon name={`${item.iconName}${selected == item.ref ? "-green" : ""}`} size="24"/>
                                     <span className="item--text">{item.text}</span>
                                 </button>
                             </li>
