@@ -16,6 +16,7 @@ body {
 }
 
 .btn {
+  position: relative;
   font-family: Barlow, sans-serif;
   color: $fc1;
   font-size: 1.4em;
@@ -23,8 +24,40 @@ body {
   background: $theme1;
   border-radius: 15px;
   padding: .8em 2.2em;
-  box-shadow: -1px 2px 6px $shadow1;
+  box-shadow: -1px 2px 6px transparentize($shadow1, 0.3);
   min-width: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+
+  & * {
+    z-index: 2;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 15px;
+    background-image: radial-gradient(
+                    50% 50% at 50% 50%,
+                    rgb(34, 201, 9) 16.15%,
+                    rgb(28, 131, 12) 98.44%
+    );
+    z-index: 0;
+    transition: opacity .2s linear;
+    opacity: 0;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
 }
 
 .stroke {
@@ -32,4 +65,8 @@ body {
   padding: calc(.8em - 4px) calc(2.2em - 4px);
   background: transparentize($bg1, 0.8);
   backdrop-filter: blur(10px);
+
+  &:before {
+    border-radius: 10px;
+  }
 }

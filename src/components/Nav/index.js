@@ -2,58 +2,49 @@ import Icon from "../UI/Icon";
 import "./styles.scss";
 import { useEffect, useState } from "react";
 
-const NAV_ITEMS = [
-    {
-        ref: "home",
-        iconName: "home",
-        text: "home"
-    },
-    {
-        ref: "aboutme",
-        iconName: "user",
-        text: "about me"
-    },
-    {
-        ref: "portfolio",
-        iconName: "portfolio",
-        text: "portfolio"
-    },
-    {
-        ref: "links",
-        iconName: "links",
-        text: "links"
-    },
-];
-
-const Nav = () => {
-    const [ selected, setSelected ] = useState("home");
+const Nav = ({sections}) => {
+    const [ selected, setSelected ] = useState(null);
     const [ bgActive, setBgActive] = useState(false)
 
     useEffect(()=> {
-        window.addEventListener('scroll', listenScrollEvent)
+        listenScrollEvent();
+        window.addEventListener('scroll', listenScrollEvent);
     }, [])
 
-    const handleClick = (name) => {
-        setSelected("")
-        setSelected(name)
+    // Handling nav item click event to scroll to certain section
+    const handleClick = (name, ref) => {
+        setSelected(name);
+
+        window.scrollTo({
+            top: ref.current.offsetTop,
+            behavior: "smooth"
+        })
     };
 
     const listenScrollEvent = e => {
-        if (window.scrollY > 400)
+        // Navbar detaching from fixed
+        if (window.scrollY > 200)
             setBgActive(true)
         else
             setBgActive(false)
+
+        // Changing active section
+        if(window.scrollY < sections[1].ref.current.offsetTop - 200)
+            setSelected(sections[0].text);
+        if(window.scrollY >= sections[1].ref.current.offsetTop - 200 )
+            setSelected(sections[1].text);
+
     }
 
     return (
         <header className={`header ${bgActive ? "scrolled" : "unscrolled"}`}>
             <nav className="navigation">
                 <ul className="navigation--list">
-                    {NAV_ITEMS.map((item, index) =>
+                    {sections.map((item, index) =>
                         (
-                            <li className={selected == item.ref ? "current" : undefined} key={index}>
-                                <button className="list--item" onClick={() => handleClick(item.ref)}>
-                                    <Icon name={`${item.iconName}${selected == item.ref ? "-green" : ""}`} size="24"/>
+                            <li className={selected === item.text ? "current" : undefined} key={index}>
+                                <button className="list--item" onClick={() => handleClick(item.text, item.ref)}>
+                                    <Icon name={`${item.iconName}${selected === item.text ? "-green" : ""}`} size="24"/>
                                     <span className="item--text">{item.text}</span>
                                 </button>
                             </li>

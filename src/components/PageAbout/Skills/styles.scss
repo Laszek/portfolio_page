@@ -1,0 +1,38 @@
+@import "../../../helpers/helpers";
+
+.skills--container {
+  width: 100%;
+
+  .skills--content{
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+    margin: 0 auto;
+    max-width: 1300px;
+
+    .text--title {
+      font-family: Roboto Mono;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    .skills--list{
+      list-style: none;
+
+      .list--item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .icon-container{
+          background: $theme1;
+          border-radius: 10px;
+          img {
+            margin: 1em;
+          }
+        }
+      }
+    }
+  }
+}

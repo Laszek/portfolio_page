@@ -1,1 +1,71 @@
 @import "../../helpers/helpers";
+
+.about--hero {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/images/leaves-bg.png");
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  .section-heading {
+    font-family: Barlow, sans-serif;
+    font-size: 4em;
+    opacity: 60%;
+    margin: calc(-1em - 1rem) 0 1rem calc(20% + 2rem);
+  }
+
+  .content {
+    width: 100%;
+    background: transparentize($bg2, 0.3);
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    .text--container {
+      font-size: 1.2em;
+      min-width: 300px;
+      max-width: 35%;
+      line-height: 150%;
+
+      .text--title {
+        font-family: Roboto Mono;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+      }
+    }
+
+    .image--container {
+      position: relative;
+      min-width: 400px;
+      max-width: 50%;
+
+      img {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+}
