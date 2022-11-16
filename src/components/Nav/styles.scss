@@ -1,0 +1,162 @@
+@import "../../helpers/helpers";
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+}
+
+.unscrolled {
+  .navigation {
+    margin: 15px
+  }
+}
+
+.scrolled {
+  position: relative;
+  transition: padding .5s;
+  animation: appear;
+  animation-duration: 1s;
+  background: transparentize($bg1, 0.3);
+  position: fixed;
+
+  .navigation {
+    transition: transform .5s, padding .5s;
+    transform: scale(90%);
+    padding: 10px;
+
+    &:hover {
+      transform: scale(100%);
+      padding: 15px
+    }
+  }
+}
+
+.navigation--list {
+  animation: appear;
+  animation-duration: 1s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 16px;
+
+    &::before {
+      display: block;
+      content: "";
+      position: relative;
+      transition: width .4s;
+      margin-right: 16px;
+    }
+
+    .list--item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: $theme1;
+      text-decoration: none;
+      max-width: 40px;
+      overflow: hidden;
+      transition: all .4s;
+
+      .item--text {
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 20px;
+        margin-left: 20px;
+        margin-right: -20px;
+        transition: all .4s;
+
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+
+    & + li.current::before {
+      width: 60px;
+      height: 11px;
+      background-image: url("/images/icons/line_elipse-left.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: cover;
+
+      transition: width .7s;
+    }
+
+    &.current + li::before {
+      width: 60px;
+      height: 11px;
+      background-image: url("/images/icons/line_elipse-right.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: cover;
+
+      transition: width .7s;
+    }
+
+    & + li::before {
+      width: 11px;
+      height: 11px;
+      background-image: url("/images/icons/ellipse.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      transition: width .7s;
+    }
+  }
+
+  .current .list--item {
+    transition: all .7s;
+
+    .item--text {
+      width: 100%;
+      transition: all .7s;
+    }
+
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@include devices(mobile) {
+  .navigation--list {
+    li {
+      margin: 5px;
+
+      &::before {
+        margin-right: 5px;
+      }
+
+
+      .list--item {
+        max-width: none;
+        justify-content: center;
+
+        .item--text {
+          display: none;
+          margin: 0;
+        }
+      }
+    }
+    .current .list--item {
+      width: auto;
+    }
+  }
+}
+
+

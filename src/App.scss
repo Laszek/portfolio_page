@@ -1,0 +1,35 @@
+@import "./helpers/helpers.scss";
+
+.root, * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: $bg1;
+  font-family: Roboto, sans-serif;
+  color: white;
+}
+
+.App{
+  width: 100%;
+}
+
+.btn {
+  font-family: Barlow, sans-serif;
+  color: $fc1;
+  font-size: 1.4em;
+  border: 0;
+  background: $theme1;
+  border-radius: 15px;
+  padding: .8em 2.2em;
+  box-shadow: -1px 2px 6px $shadow1;
+  min-width: 200px;
+}
+
+.stroke {
+  border: 4px solid $theme1;
+  padding: calc(.8em - 4px) calc(2.2em - 4px);
+  background: transparentize($bg1, 0.8);
+  backdrop-filter: blur(10px);
+}

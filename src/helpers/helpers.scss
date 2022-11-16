@@ -1,0 +1,50 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Roboto+Mono:wght@400;700&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap');
+
+/* colors */
+$bg1: #0E0E0E;
+$bg2: #0D3019;
+
+$theme1: #1C840B;
+
+$fc1: #FFF;
+
+$shadow1: #737373;
+
+/* media queries */
+
+$bp-small-phone: 340px;
+$bp-phone: 640px;
+$bp-tablet: 1024px;
+$bp-desktop: 1259px;
+
+@mixin devices($breakpoint) { //the name of the mixin is devices
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: $bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: $bp-phone) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-mobile {
+    @media only screen and (max-width: $bp-small-phone) {
+      @content;
+    }
+  }
+}
+
+// animations
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
