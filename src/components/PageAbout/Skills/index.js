@@ -4,7 +4,7 @@ import Icon from "../../UI/Icon";
 const Skills = () => {
     const skills = [
         {
-            name: "Html5",
+            name: "HTML5",
             description: "Lorem ipsum dolor sit amet.\n Benediktum sakrificum del piero dirte",
             icon: "html5"
         },
@@ -22,7 +22,7 @@ const Skills = () => {
                 <ul className="skills--list">
                     {skills.map((item, index) => (
                         <li className="list--item">
-                            <Icon name={item.icon} size={42} />
+                            <Icon name={item.icon} size={48} />
                             <h4>{item.name}</h4>
                             <p>{item.description}</p>
                         </li>

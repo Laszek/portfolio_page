@@ -24,8 +24,8 @@ const PageAbout = ({forwardRef}) => {
                     </div>
                 </div>
             </div>
-            <Education />
             <Skills />
+            <Education />
         </div>
     )
 }

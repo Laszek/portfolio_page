@@ -1,6 +1,6 @@
 @import "../../helpers/helpers";
 
-.home--container {
+.home__container {
   min-height: 100vh;
   min-width: 100%;
 
@@ -22,7 +22,7 @@
     position: relative;
   }
 
-  .home--content {
+  .home__content {
     text-align: center;
     animation: appear ease-in;
     animation-duration: 1.5s;
@@ -58,18 +58,46 @@
   }
 }
 
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+
+  .info__element {
+    font-size: 1.3em;
+    text-align: left;
+
+    a {
+      font-family: Roboto Mono, sans-serif;
+      font-size: 0.8em;
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+
+      &:hover {
+        transition: color .2s;
+        color: $theme2;
+      }
+    }
+    &:last-child {
+      margin-top: .5em;
+    }
+  }
+
+}
+
 .accent {
   color: $theme1;
   text-shadow: 0px 4px 4px #282828;
 }
 
-@include devices(mobile) {
-  .home--container {
+@include devices(tablet) {
+  .home__container {
     width: 100%;
     background-position: 40% bottom;
-    align-items: flex-start;
-    .home--content {
-      margin-top: 40%;
+    align-items: center;
+    .home__content {
       padding: 10px;
       .buttons {
         align-items: center;
@@ -77,6 +105,30 @@
         .btn + .btn {
           margin-top: 1em
         }
+      }
+    }
+  }
+}
+@include devices(mobile) {
+  .home__container {
+    .home__content {
+      font-size: .7em;
+    }
+  }
+
+  .info {
+    font-size: 1.4em;
+    width: 100%;
+    margin: 0 0 40px 0;
+    .info__element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+
+      a {
+        margin-top: .3em;
       }
     }
   }
