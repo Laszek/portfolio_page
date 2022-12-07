@@ -34,6 +34,10 @@ const Nav = ({sections}) => {
             setSelected(sections[0].text);
         if(window.scrollY >= sections[1].ref.current.offsetTop - 200 )
             setSelected(sections[1].text);
+        if(window.scrollY >= sections[2].ref.current.offsetTop - 200 )
+            setSelected(sections[2].text);
+        //if(window.scrollY >= sections[3].ref.current.offsetTop - 200 )
+        //    setSelected(sections[3].text);
 
     }
 

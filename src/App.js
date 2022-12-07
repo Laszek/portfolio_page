@@ -4,10 +4,12 @@ import PageHome from "./components/PageHome";
 import PageAbout from "./components/PageAbout";
 import { useRef } from "react";
 import { faFolder, faHome, faLink, faUser } from "@fortawesome/free-solid-svg-icons";
+import Portfolio from "./components/Portfolio";
 
 function App() {
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
+    const portfolioRef = useRef(null);
 
     const sections = [
         {
@@ -21,7 +23,7 @@ function App() {
             text: "about me"
         },
         {
-            ref: aboutRef,
+            ref: portfolioRef,
             icon: faFolder,
             text: "portfolio"
         },
@@ -37,6 +39,7 @@ function App() {
             <Nav sections={sections} />
             <PageHome forwardRef={homeRef} />
             <PageAbout forwardRef={aboutRef} />
+            <Portfolio forwardRef={portfolioRef} />
         </div>
     );
 }

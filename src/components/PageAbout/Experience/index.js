@@ -12,12 +12,12 @@ const Experience = () => {
                         beginners.
                         It includes list of courses, posts about IT and job offers.
                     </p>
-                    <h3>What I was working on?</h3>
+                    <h4>What I was working on?</h4>
                     <p>
                         Features like Notifications, Posts components, Forms for creating new posts, Profile
                         page, Filtering, Reactions and more.
                     </p>
-                    <h3>What I’ve learned?</h3>
+                    <h4>What I’ve learned?</h4>
                     <ul>
                         <li>React hooks and more advanced features of this framework</li>
                         <li>Axios and REST API</li>
@@ -29,22 +29,31 @@ const Experience = () => {
             ,
             companyName: "BeeWeb/Ficori",
             companyLogoUrl: "https://beeweb.pl/wp-content/uploads/2018/05/navlogo-img.png",
-            startDate: new Date("06.2022"),
+            startDate: new Date(2022, 5),
             endDate: null,
             isCurrent: true,
             additionalImageUrl: []
-        }
+        },
     ]
 
     return (
         <div className="experience__container">
+            <h3 className="text__title">Experience</h3>
             <ul className="jobs-list">
                 {jobs.map((item, index) => (
                     <li className="job">
-                        <img src={item.companyLogoUrl} alt={item.companyName + " logo"}/>
+                        <div className="job__company-logo">
+                            <img src={item.companyLogoUrl} alt={item.companyName + " logo"} width="100%"/>
+                        </div>
                         <div className="job__details">
-                            <span className="job__period"></span>
-                            <h3 className="job__title">{item.jobName}</h3>
+                            <span className="job__period">
+                                {`${item.startDate.getMonth()}.${item.startDate.getFullYear()}`} - {item.isCurrent
+                                    ? "now"
+                                    : `${item?.endDate.getMonth()}.${item?.endDate.getFullYear()}`}</span>
+                            <h4 className="job__title">{item.jobName}</h4>
+                            <div className="job__description">
+                                {item.jobDescription}
+                            </div>
                         </div>
                     </li>
                 ))}

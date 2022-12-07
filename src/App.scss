@@ -24,8 +24,9 @@ body {
   background: $theme1;
   border-radius: 15px;
   padding: .8em 2.2em;
-  box-shadow: -1px 2px 6px transparentize($shadow1, 0.3);
-  min-width: 200px;
+  box-shadow: -1px 1px 3px rgba(0,0,0,.05);
+  cursor: pointer;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;
@@ -61,12 +62,17 @@ body {
 }
 
 .stroke {
-  border: 4px solid $theme1;
+  border: 4px solid $theme2;
   padding: calc(.8em - 4px) calc(2.2em - 4px);
   background: transparentize($bg1, 0.8);
   backdrop-filter: blur(10px);
 
   &:before {
     border-radius: 10px;
+    background-image: radial-gradient(
+                    50% 50% at 50% 50%,
+                    rgb(34, 201, 9) 16.15%,
+                    rgba(28, 131, 12, 0) 98.44%
+    );
   }
 }

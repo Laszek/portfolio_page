@@ -1,7 +1,68 @@
 @import "../../../helpers/helpers";
 
+.experience__container {
+  padding: 3em;
+
+  .jobs-list {
+    margin: 0 auto;
+    list-style: none;
+    max-width: 1300px;
+
+    .job {
+      display: flex;
+      padding: 0 2em;
+      margin-bottom: 2em;
+
+      .job__company-logo{
+        flex: 1;
+        margin-right: 2em;
+
+        img {
+          background: white;
+          padding: 1em;
+          border-radius: 10px;
+        }
+      }
+
+      .job__details {
+        flex: 3;
+        line-height: 150%;
+        font-size: 1.05rem;
+
+        h4 {
+          font-family: Roboto Mono, sans-serif;
+          line-height: 160%;
+          font-size: 1.2em;
+        }
+
+        .job__period {
+          font-weight: 300;
+          font-size: 1em;
+        }
+        .job__title {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
 
 
 @include devices(tablet) {
+  .experience__container {
+    .jobs-list {
+      .job {
+        border-left: 2px solid white;
+        flex-direction: column;
 
+        .job__company-logo{
+          max-width: 250px;
+          margin: 0;
+        }
+
+        .job__details {
+        }
+      }
+    }
+  }
 }
