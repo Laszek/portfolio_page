@@ -1,6 +1,7 @@
 import "./styles.scss";
 import Education from "./Education";
 import Skills from "./Skills";
+import Experience from "./Experience";
 
 const PageAbout = ({forwardRef}) => {
 
@@ -26,6 +27,7 @@ const PageAbout = ({forwardRef}) => {
             </div>
             <Skills />
             <Education />
+            <Experience />
         </div>
     )
 }

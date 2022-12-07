@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import PageHome from "./components/PageHome";
 import PageAbout from "./components/PageAbout";
 import { useRef } from "react";
+import { faFolder, faHome, faLink, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
     const homeRef = useRef(null);
@@ -11,22 +12,22 @@ function App() {
     const sections = [
         {
             ref: homeRef,
-            iconName: "home",
+            icon: faHome,
             text: "home"
         },
         {
             ref: aboutRef,
-            iconName: "user",
+            icon: faUser,
             text: "about me"
         },
         {
             ref: aboutRef,
-            iconName: "portfolio",
+            icon: faFolder,
             text: "portfolio"
         },
         {
             ref: aboutRef,
-            iconName: "links",
+            icon: faLink,
             text: "links"
         },
     ];

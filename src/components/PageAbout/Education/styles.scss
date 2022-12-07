@@ -1,34 +1,70 @@
 @import "../../../helpers/helpers";
 
-.education--container {
-  margin-top: 10em;
+.education__container {
+  position: relative;
   width: 100%;
   background: url("../../../images/CDV.png");
+  background-size: cover;
+  margin-top: 5em;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .education--content{
-    width: 100%;
-    height: 100%;
-    padding: 2.5em 0;
-    background: transparentize($bg1, 0.7);
+  &:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparentize($bg1, 0.6);
     backdrop-filter: blur(2px);
+    content: "";
+    z-index: 1;
+  }
+
+  .content__container{
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
 
-    .text--title {
-      font-family: Roboto Mono;
-      font-size: 1.8em;
-      margin-bottom: 1em;
+    .school-logo {
     }
 
-    p {
-      font-size: 1.2em;
-    }
+    .education__content{
+      padding: 2.5em 1em;
+      margin-left: 150px;
+      text-align: center;
+      max-width: 500px;
 
-    p + p {
-      margin-top: 1em;
-      max-width: 700px
+      .text__title {
+        font-family: Roboto Mono;
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+
+      p + p {
+        margin-top: 1em;
+        max-width: 700px
+      }
+    }
+  }
+}
+
+@include devices(tablet) {
+  .education__container {
+    .content__container{
+      flex-direction: column-reverse;
+      .education__content{
+        margin: 0
+      }
     }
   }
 }

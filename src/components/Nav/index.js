@@ -1,6 +1,7 @@
 import Icon from "../UI/Icon";
 import "./styles.scss";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = ({sections}) => {
     const [ selected, setSelected ] = useState(null);
@@ -44,7 +45,7 @@ const Nav = ({sections}) => {
                         (
                             <li className={selected === item.text ? "current" : undefined} key={index}>
                                 <button className="list--item" onClick={() => handleClick(item.text, item.ref)}>
-                                    <Icon name={`${item.iconName}${selected === item.text ? "-green" : ""}`} size="24"/>
+                                    <FontAwesomeIcon icon={item.icon} color={selected === item.text ? "#35AA17FF" : "white"} size="sm" />
                                     <span className="item--text">{item.text}</span>
                                 </button>
                             </li>

@@ -4,6 +4,7 @@
   position: relative;
   min-height: 100vh;
   min-width: 100%;
+  margin-bottom: 2em;
 
   display: flex;
   flex-direction: column;
@@ -13,12 +14,11 @@
     position: absolute;
     content: "";
     top: 0;
-    left: 0;
-    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-image: url("/images/leaves-bg.png");
+    background-size: cover;
     opacity: 0.4;
     z-index: -1;
   }
@@ -44,6 +44,7 @@
       min-width: 300px;
       max-width: 35%;
       line-height: 150%;
+      flex: 1;
 
       .text--title {
         font-family: Roboto Mono;
@@ -54,7 +55,7 @@
 
     .image--container {
       position: relative;
-      min-width: 400px;
+      min-width: 500px;
       max-width: 50%;
 
       img {
@@ -65,6 +66,35 @@
         right: 0;
         bottom: 0;
         width: 100%;
+      }
+    }
+  }
+}
+
+@include devices(tablet) {
+  .about--hero {
+    padding-bottom: 8em;
+
+    .section-heading {
+      margin: .5em 0;
+      text-align: center;
+    }
+    .content {
+      flex-direction: column;
+      gap: 50px;
+
+
+      .text--container {
+        max-width: 800px;
+        padding: 0 2em;
+        text-align: center;
+      }
+
+      .image--container {
+        min-width: 300px;
+        img{
+          position: relative;
+        }
       }
     }
   }

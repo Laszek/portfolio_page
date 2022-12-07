@@ -1,18 +1,18 @@
 @import "../../../helpers/helpers";
 
-.skills--container {
+.skills__container {
   width: 100%;
 
-  .skills--content{
+  .skills__content{
     width: 100%;
     height: 100%;
     margin: 0 auto;
     max-width: 1300px;
 
-    .text--title {
+    .text__title {
       font-family: Roboto Mono;
       font-size: 1.8em;
-      margin-bottom: 1em;
+      margin-bottom: 2rem;
       text-align: center;
     }
 
@@ -20,30 +20,98 @@
       font-size: 1.2em;
     }
 
-    .skills--list{
+    .skills__list{
       list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-row-gap: 50px;
+      grid-column-gap: 50px;
+      margin-bottom: 2em;
+      padding: 1em;
 
-      .list--item {
+      .list__item {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         font-size: 1.2em;
 
         .icon-container{
-          background: $theme1;
+          width: 100px;
+          height: 100px;
+          background: $theme2;
           border-radius: 10px;
-          padding: 24px;
-          margin-bottom: .6em;
-          box-shadow: 0px 0px 5px $shadow1;
-          img {
-            margin-bottom: -4px;
-          }
+          font-size: 2em;
+          box-shadow: 0px 2px 3px $shadow1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: .2em;
         }
         h4 {
           font-family: Roboto Mono;
           font-size: 1.1em;
           line-height: 150%;
         }
+        p {
+          font-family: Roboto;
+          font-weight: 300;
+          font-size: 0.9em;
+        }
+      }
+    }
+    .skills__list--other {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      padding: 1em;
+      gap: 20px;
+
+      width: 100%;
+      background: #141415;
+      border-radius: 10px;
+
+      .list__item {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .icon-container{
+          font-size: 2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: .3em;
+        }
+
+        h4 {
+          font-family: Roboto Mono;
+          font-weight: 600;
+          font-size: 1.1em;
+          line-height: 150%;
+        }
+      }
+    }
+  }
+}
+
+@include devices(tablet) {
+  .skills__container {
+    .skills__content{
+      .skills__list{
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 20px;
+        grid-column-gap: 15px;
+        padding: 1.2em;
+        .list__item{
+          align-items: center;
+          text-align: center;
+        }
+      }
+      .skills__list--other {
+        flex-wrap: wrap;
       }
     }
   }
